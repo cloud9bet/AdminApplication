@@ -1,15 +1,16 @@
 import Footer from "../components/Footer"
-import '../styles/SiteInformation.css'
+import Header from "../components/Header"
+import '../styles/SiteInformationPage.css'
 
 function SiteInformationPage() {
   return (
     <div className="main-container">
       <div className="SiteInformation-container">
-        
+        <Header/>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
 
-export default SiteInformation
+export default SiteInformationPage

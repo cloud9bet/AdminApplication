@@ -1,0 +1,20 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: #293953 solid 2px;
+    background-color: #1a2434;
+    padding: 10px 15px;
+    min-height: 70px;
+  
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 30px;
+    margin-right: 20px;
+    /* flex-wrap: wrap; */
+}
+
