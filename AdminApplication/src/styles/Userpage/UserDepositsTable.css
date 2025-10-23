@@ -1,0 +1,24 @@
+.user-deposits {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.user-deposits table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.user-deposits th,
+.user-deposits td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.user-deposits th {
+  color: #aaa;
+}

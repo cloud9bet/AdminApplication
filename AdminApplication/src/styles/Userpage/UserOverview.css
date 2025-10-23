@@ -1,0 +1,23 @@
+.user-overview {
+  background-color: #1c1c1c;
+  padding: 25px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.user-overview h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.user-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  color: white;
+}
+
+.user-info-grid p {
+  margin: 5px 0;
+}

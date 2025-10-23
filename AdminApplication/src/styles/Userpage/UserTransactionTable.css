@@ -1,0 +1,25 @@
+.user-transactions {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.user-transactions table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.user-transactions th,
+.user-transactions td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.user-transactions th {
+  color: #aaa;
+}

@@ -34,6 +34,9 @@
   font-size: 1.5em; /* scales with master font size */
   margin-right: 0.5em;
 }
+.logoutbtn:hover{
+  background-color: tomato;
+}
 
 @media (max-width: 600px) {
   .user-info-btn,

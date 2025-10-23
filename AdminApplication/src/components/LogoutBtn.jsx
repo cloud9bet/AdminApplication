@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
-
+import { FaSignOutAlt} from "react-icons/fa";
+import '../styles/SettingsPageButton.css'
 function LogoutBtn() {
     const navigate = useNavigate();
   
@@ -9,8 +10,8 @@ function LogoutBtn() {
 
   return ( 
       <div className="logout-btn">
-      <button className="btn" onClick={OnLogOutClicked}>
-        🚪
+      <button className="logoutbtn" onClick={OnLogOutClicked}>  {/*THIS */}
+        <FaSignOutAlt/>
       </button>
       </div>
   )
