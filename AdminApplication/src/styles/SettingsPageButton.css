@@ -1,0 +1,45 @@
+.user-info-btn,
+.site-info-btn,
+.transaction-btn {
+  --scale: clamp(0.9rem, 1.5vw, 1.4rem); /* master scale control */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+
+  width: 30vw;
+  max-width: 400px;
+  height: 10vw;
+  max-height: 100px;
+
+  background-color: #1c1c1c;
+  color: white;
+  font-size: var(--scale);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.user-info-btn:hover,
+.site-info-btn:hover,
+.transaction-btn:hover {
+  filter: brightness(0.7) contrast(1.2);
+}
+
+.user-icon,
+.siteinformation-icon,
+.transaction-icon {
+  font-size: 1.5em; /* scales with master font size */
+  margin-right: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .user-info-btn,
+  .site-info-btn,
+  .transaction-btn {
+    width: 80vw;
+    height: 20vw;
+  }
+}

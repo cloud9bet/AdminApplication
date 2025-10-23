@@ -14,32 +14,3 @@
   height: 100%;
   object-fit: contain;
 }
-.UserPageLogo,
-.TransactionPageLogo,
-.SiteInformationPageLogo {
-  width: 80vw;
-  max-width: 450px;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #e3e3e3; 
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-  transition: transform 0.15s ease, filter 0.2s ease;
-  cursor: pointer;
-}
-
-.UserPageLogo:hover,
-.TransactionPageLogo:hover,
-.SiteInformationPageLogo:hover {
-  filter: brightness(0.9) contrast(1.1);
-  transform: translateY(-4px); /* crazy bounce */
-}
-
-.UserPageLogo img,
-.TransactionPageLogo img,
-.SiteInformationPageLogo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  
-  display: block;
-}

@@ -1,27 +1,25 @@
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import UserPageLogo from "../components/UserPageLogo"
-import TransactionPageLogo from "../components/TransactionPageLogo"
-import SiteInformationPageLogo from "../components/SiteInformationPageLogo"
-import '../styles/HomePage.css'
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import UserInformationButton from "../components/UserInformationButton";
+import SiteInformationButton from "../components/SiteInformationButton";
+import TransactionButton from "../components/TransactionButton";
 
+import "../styles/HomePage.css";
 
 function HomePage() {
   return (
-  <div className="Homepage-container">
-    <div>
-      <Header/>
+    <div className="homepage-container">
+      <Header />
+
+      <div className="homepage-buttons">
+        <UserInformationButton />
+        <SiteInformationButton />
+        <TransactionButton />
+      </div>
+
+      <Footer />
     </div>
-    <div className="Homepage-Links">
-        <UserPageLogo/>
-        <TransactionPageLogo/>
-        <SiteInformationPageLogo/>
-    </div>
-    <div>
-        <Footer/>
-    </div>
-  </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
