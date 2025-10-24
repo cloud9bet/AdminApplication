@@ -23,3 +23,10 @@
 .user-transactions th {
   color: #aaa;
 }
+
+.currency-positive {
+  color: lightgreen;
+}
+.currency-negative {
+  color: tomato
+}

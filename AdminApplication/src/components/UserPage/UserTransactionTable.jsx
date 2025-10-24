@@ -25,7 +25,7 @@ function UserTransactionsTable({ transactions }) {
             <tr key={t.transactionId}>
               <td>{t.transactionDate}</td>
               <td>{t.gameName}</td>
-              <td>{t.amount}</td>
+              <td class={t.amount>=0? "currency-positive":"currency-negative"}>${t.amount}</td>
             </tr>
           ))}
         </tbody>

@@ -22,3 +22,9 @@
 .user-deposits th {
   color: #aaa;
 }
+.currency-positive {
+  color: lightgreen;
+}
+.currency-negative {
+  color: tomato;
+}

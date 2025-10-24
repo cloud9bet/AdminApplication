@@ -25,7 +25,7 @@ function UserDepositsTable({ deposits }) {
             <tr key={d.depositId}>
               <td>{d.depositId}</td>
               <td>{d.depositDate}</td>
-              <td>{d.amount.toFixed(2)}</td>
+              <td class={d.amount>=0? "currency-positive":"currency-negative"}>${d.amount}</td>
             </tr>
           ))}
         </tbody>

@@ -6,7 +6,6 @@
     background-color: #1a2434;
     padding: 10px 15px;
     min-height: 70px;
-  
 }
 
 .header-nav {
@@ -15,6 +14,5 @@
     gap: 10px;
     margin-top: 30px;
     margin-right: 20px;
-    /* flex-wrap: wrap; */
 }
 

@@ -21,3 +21,16 @@
 .user-info-grid p {
   margin: 5px 0;
 }
+
+.active {
+  color: lightgreen;
+}
+.deactivated {
+  color: tomato;
+}
+.currency-positive {
+  color: lightgreen;
+}
+.currency-negative {
+  color: tomato
+}

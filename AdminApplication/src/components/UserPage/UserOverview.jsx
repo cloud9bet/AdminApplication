@@ -5,9 +5,14 @@ function UserOverview({ user }) {
       <h2>{user.userName}</h2>
       <div className="user-info-grid">
         <p>ID: {user.id}</p>
-        <p>Balance: {user.balance}</p>
+        <p>Balance:<span class="currency-positive">${user.balance}</span> </p>
         <p>Deposit Limit: {user.depositLimit}</p>
-        <p>Status: {user.activeStatus ? "Active" : "Deactivated"}</p>
+        <p>
+            Status:{" "}
+            <span className={user.activeStatus ? "active" : "deactivated"}>
+              {user.activeStatus ? "Active" : "Deactivated"}
+            </span>
+        </p>
       </div>
     </div>
   );
