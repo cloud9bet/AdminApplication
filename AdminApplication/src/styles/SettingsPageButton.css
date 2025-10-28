@@ -19,7 +19,6 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: filter 0.2s ease;
 }
 
 .user-info-btn:hover,
