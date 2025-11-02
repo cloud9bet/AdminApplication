@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/AdminApplication/',
   build: {
-    sourcemap: false,          // 👈 disables eval-based code that CSP blocks
+    sourcemap: false, // Deaktiver eval siden github pages bloker det
   },
+  
 })
