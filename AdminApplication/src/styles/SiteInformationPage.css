@@ -1,5 +1,5 @@
-.main-container{
-    width: 100vw;           /* Brug viewport width i stedet for 100% */
+.main-container {
+    width: 100vw;
     height: 100vh;
     background-color: #1e293b;
     display: flex;       
@@ -7,5 +7,42 @@
     overflow: hidden;  
     justify-content: space-between;
     box-sizing: border-box;
-  gap: 10px;
+    gap: 10px;
+}
+
+.SiteInformation-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px;
+    flex: 1;
+    overflow-x: auto; /* Failsafe hvis nu der ikke er plads (man kan scroll horizontalt) */
+}
+
+.individual-chart {
+    min-width: 300px; /* Sørge for de ikke bliver helt skrympet */
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.individual-chart h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
 }
