@@ -12,11 +12,18 @@
   color: white;
   padding: 12px;
   border-radius: 12px;
-  width: 30%;
+  max-width: 300px;
   margin: 10px auto;
   cursor: pointer;
 }
 
 .user-search li:hover {
   background-color: #2b2b2b;
+}
+
+@media (max-width: 480px) {
+  .user-search li {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }
