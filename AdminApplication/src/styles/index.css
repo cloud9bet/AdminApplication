@@ -34,8 +34,7 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: block; /* Ændret så vi kan bruge height: 100% på children */
 }
 
 a {

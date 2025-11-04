@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import '../styles/SiteInformationPage.css'
 import EarningsChart from "../components/charts/EarningsChart"
 import { processTransactionsByGame, processTotalEarnings } from '../utils/transactionUtils';
+import EarningsPieChart from "../components/Charts/EarningsPieChart";
 
 
 import { useState, useEffect } from 'react';
@@ -25,7 +26,7 @@ function SiteInformationPage() {
 
 
   return ( // Kald af renderChart funktionen for hver chart med relevant data og farve
-    <div className="main-container">
+    <div className="siteinformation-main-container">
       <div className="SiteInformation-container">
         <Header />
         <div className="charts-container">
@@ -34,6 +35,18 @@ function SiteInformationPage() {
           <EarningsChart data={crashData} title="Crash Earnings" color="#82ca9d" />
           <EarningsChart data={coinflipData} title="Coinflip Earnings" color="#ffc658" />
         </div>
+        {transactions.length > 0 && slotData.length > 0 && crashData.length > 0 && coinflipData.length > 0 && (
+          <div className="piechart-container">
+            <EarningsPieChart
+              data={[
+                { name: "Slot Machine", value: slotData.reduce((sum, d) => sum + d.earnings, 0) },
+                { name: "Crash", value: crashData.reduce((sum, d) => sum + d.earnings, 0) },
+                { name: "Coinflip", value: coinflipData.reduce((sum, d) => sum + d.earnings, 0) },
+              ]}
+            />
+          </div>
+        )}
+
         <Footer />
       </div>
     </div>
