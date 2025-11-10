@@ -117,12 +117,13 @@
   background-color: #1e293b;
   border-radius: 14px;
   padding: 20px;
-  width: 35%;
+  width: 39%;
   min-width: 320px;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /* RESPONSIVITET */

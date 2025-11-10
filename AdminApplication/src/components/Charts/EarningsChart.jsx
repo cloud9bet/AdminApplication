@@ -1,5 +1,30 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'; // Importerer komponenter fra recharts
 
+const CustomTooltip = ({ active, payload, label }) => { // Custom tooltip til teksten når man hover over søjlerne
+  if (active && payload && payload.length) { // Tjekker om tooltip er aktiv og om der er data at vise
+    const date = new Date(label); // Konverterer label (dato string) til et Date objekt
+    const formattedDate = `${date.getDate()}/${date.getMonth() + 1}`; // Formaterer datoen som DD/MM
+    const { value } = payload[0]; // Henter værdien (earnings) fra payload
+
+    return (
+      <div
+        style={{ // Styling for tooltip/teksten
+          background: "#1e1e2f",  // Baggrund ligesom resten af siden   
+          color: "#f1f5f9", // Lys tekst farve       
+          padding: "6px 10px", // Padding for indholdet
+          borderRadius: "6px", // Runde hjørner
+        }}
+      >
+        <p>{`Earnings (USD): ${value.toFixed(2)}`}</p> {/* Viser earnings med 2 decimaler */}
+        <p style={{ fontSize: "0.8em", opacity: 0.8 }}>{formattedDate}</p> {/* Viser den formaterede dato */}
+      </div>
+    );
+  }
+  return null;
+};
+
+
+
 function EarningsChart({ data, title, color }) {
   return (
     <div className="individual-chart">
@@ -27,14 +52,9 @@ function EarningsChart({ data, title, color }) {
             height={60} // Ændre højden for labels
           />
           <YAxis /> {/* Sætter Y-aksen */}
-          <Tooltip // Viser tooltip (så man kan se earnings når man holder musen over en bar)
-            labelFormatter={(dateStr) => {
-              const date = new Date(dateStr);
-              return `${date.getDate()}/${date.getMonth() + 1}`; // formatered dato
-            }}
-          />
+          <Tooltip content={<CustomTooltip />} /> {/* Bruger custom tooltip jeg har lavet */}
           <Legend /> {/* Viser legend for diagrammet */}
-          <Bar dataKey="earnings" fill={color} name="Earnings (USD)" />
+          <Bar dataKey="earnings" fill={color} name="Earnings (USD)" /> {/* Søjlerne i diagrammet med farve */}
         </BarChart>
       </ResponsiveContainer>
     </div>
