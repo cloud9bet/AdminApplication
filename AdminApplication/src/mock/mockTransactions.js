@@ -12,7 +12,7 @@ export const mockTransactions = [
   { transactionId: 12, date: "2025-11-06", amount: 4500, gameName: "Crash" },
   { transactionId: 13, date: "2025-11-07", amount: 3600, gameName: "Crash" },
   { transactionId: 14, date: "2025-11-08", amount: 3900, gameName: "Crash" },
-  { transactionId: 15, date: "2025-11-09", amount: 4300, gameName: "Crash" },
+  { transactionId: 15, date: "2025-11-09", amount: 4300.55, gameName: "Crash" },
   { transactionId: 16, date: "2025-11-10", amount: 4100, gameName: "Crash" },
 
   // Coinflip
@@ -20,6 +20,6 @@ export const mockTransactions = [
   { transactionId: 20, date: "2025-11-06", amount: 3500, gameName: "Coinflip" },
   { transactionId: 21, date: "2025-11-07", amount: 4000, gameName: "Coinflip" },
   { transactionId: 22, date: "2025-11-08", amount: 3800, gameName: "Coinflip" },
-  { transactionId: 23, date: "2025-11-09", amount: 3900, gameName: "Coinflip" },
+  { transactionId: 23, date: "2025-11-09", amount: 3900.82, gameName: "Coinflip" },
   { transactionId: 24, date: "2025-11-10", amount: 4100, gameName: "Coinflip" },
 ];
