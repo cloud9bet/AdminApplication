@@ -26,7 +26,8 @@ const CustomTooltip = ({ active, payload, label }) => { // Custom tooltip til te
 function EarningsChart({ data, title, color }) {
   return (
     <div className="individual-chart">
-      <h2>{title}</h2>
+      <h2 style={{ color: "#f1f5f9" }}>{title}</h2>
+
       <ResponsiveContainer width="100%" height={250}> {/* Gør diagrammet responsivt */}
         <BarChart //Recharts diagram komponent
           data={data}
