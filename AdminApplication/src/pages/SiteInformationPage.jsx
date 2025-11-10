@@ -1,7 +1,7 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import '../styles/SiteInformationPage.css'
-import EarningsChart from "../components/charts/EarningsChart"
+import EarningsChart from "../components/Charts/EarningsChart"
 import { processTransactionsByGame, processTotalEarnings } from '../utils/transactionUtils';
 import { calculateSiteSummary } from '../utils/transactionUtils';
 import EarningsPieChart from "../components/Charts/EarningsPieChart";

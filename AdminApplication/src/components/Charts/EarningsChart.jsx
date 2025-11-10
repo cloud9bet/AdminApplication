@@ -23,8 +23,6 @@ const CustomTooltip = ({ active, payload, label }) => { // Custom tooltip til te
   return null;
 };
 
-
-
 function EarningsChart({ data, title, color }) {
   return (
     <div className="individual-chart">

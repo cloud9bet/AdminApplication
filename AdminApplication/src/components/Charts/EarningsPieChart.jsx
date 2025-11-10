@@ -11,6 +11,7 @@ const CustomTooltip = ({ active, payload }) => { // Custom tooltip for pie chart
       <div
         style={{ // Styling for tooltip
           background: "#1e1e2f", // Mørk baggrund ligesom resten af siden
+          color: "#f1f5f9", // Lys tekst farve    
           padding: "6px 10px", // Padding for indhold
           borderRadius: "6px", // Runde hjørner
         }}
