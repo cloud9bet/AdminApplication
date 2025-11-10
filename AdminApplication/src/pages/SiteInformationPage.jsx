@@ -56,7 +56,7 @@ function SiteInformationPage() {
               </div>
               <div className="summary-box">
                 <h3>Earnings (7 days)</h3>
-                <p>{summary.totalEarningsLast7Days.toFixed(2)} kr</p>
+                <p>{summary.totalEarningsLast7Days.toFixed(2)} USD</p> {/* Fikser til 2 decimaler og konvertere til string */}
               </div>
             </div>
           </div>
