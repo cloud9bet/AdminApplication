@@ -3,12 +3,13 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts"; // Komponenter 
 
 
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658"]; // Slot, Crash, Coinflip farver
+const outerRadius = window.innerWidth < 1000 ? 70 : 100; // Justerer størrelsen på pie chart baseret på skærmstørrelse
 
 const EarningsPieChart = ({ data }) => {
   return (
     <PieChart
       // Justere størrelsen på diagrammet
-      width={420} 
+      width={480} 
       height={320}      
       margin={{ top: 10, right: 50, bottom: 10, left: 50 }}
     >
