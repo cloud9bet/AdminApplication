@@ -6,27 +6,38 @@ import { processTransactionsByGame, processTotalEarnings } from '../utils/transa
 import { calculateSiteSummary } from '../utils/transactionUtils';
 import EarningsPieChart from "../components/Charts/EarningsPieChart";
 import { usePieChartData } from "../hooks/usePieChartData";
+import { GetAllUserInfoTagsAsync, GetAllUserTransactionAsync,} from "../services/adminApi";
 
 
 import { useState, useEffect } from 'react';
-import { mockTransactions } from '../mock/mockTransactions'; // TODO: Henter dummy data og skal SLETTES når API er klar !
-import { mockUsers } from "../mock/mockUsers"; // TODO: Henter dummy data og skal SLETTES når API er klar !  
+// import { mockTransactions } from '../mock/mockTransactions';  TODO: Henter dummy data og skal SLETTES når API er klar !
+// import { mockUsers } from "../mock/mockUsers";  TODO: Henter dummy data og skal SLETTES når API er klar !  
 
 function SiteInformationPage() {
   const [transactions, setTransactions] = useState([]); // til at behandle transaction data når API er klar
   const [users, setUsers] = useState([]); // Til at behandle user data når API er klar
 
-  useEffect(() => {
-    // TODO: SKIFT MED API CALL NÅR KLAR!!!!
-    setTransactions(mockTransactions);
-    setUsers(mockUsers);
-  }, []);
+useEffect(() => {
+  async function loadData() {
+    try {
+      const usersFromApi = await GetAllUserInfoTagsAsync();
+      const transactionsFromApi = await GetAllUserTransactionAsync();
+
+      setUsers(usersFromApi || []);          // fallback til [] hvis der kommer null
+      setTransactions(transactionsFromApi || []);
+    } catch (err) {
+      console.error("API fetch error:", err);
+    }
+  }
+
+  loadData();
+}, []);
 
 
   // Kalder funktionerne for at få data til hver chart
-  const slotData = processTransactionsByGame(transactions, 'SlotMachine');
+  const slotData = processTransactionsByGame(transactions, 'Slot');
   const crashData = processTransactionsByGame(transactions, 'Crash');
-  const coinflipData = processTransactionsByGame(transactions, 'Coinflip');
+  const coinflipData = processTransactionsByGame(transactions, 'Coin Flip');
   const siteData = processTotalEarnings(transactions);
   const summary = calculateSiteSummary(transactions, users);
   const [activeChart, setActiveChart] = useState("total"); // State til at holde styr på hvilken chart der er aktiv
