@@ -13,7 +13,7 @@
   height: 10vw;
   max-height: 100px;
 
-  background-color: #1c1c1c;
+  background-color: #0f172a;
   color: white;
   font-size: var(--scale);
   border: none;
@@ -21,11 +21,7 @@
   cursor: pointer;
 }
 
-.user-info-btn:hover,
-.site-info-btn:hover,
-.transaction-btn:hover {
-  filter: brightness(0.7) contrast(1.2);
-}
+
 
 .user-icon,
 .siteinformation-icon,

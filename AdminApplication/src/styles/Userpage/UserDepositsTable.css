@@ -1,5 +1,5 @@
 .user-deposits {
-  background-color: #1c1c1c;
+  background-color: #0f172a;
   padding: 20px;
   border-radius: 10px;
   width: 70%;
@@ -21,7 +21,7 @@
 }
 
 .user-deposits th {
-  color: #aaa;
+  color:white;
 }
 .currency-positive {
   color: lightgreen;

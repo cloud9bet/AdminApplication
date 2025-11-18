@@ -1,5 +1,6 @@
 .user-transactions {
-  background-color: #1c1c1c;
+  background-color: #0f172a;
+  color:white;
   padding: 20px;
   border-radius: 10px;
   width: 70%;
@@ -21,7 +22,7 @@
 }
 
 .user-transactions th {
-  color: #aaa;
+  color:white;
 }
 
 .currency-positive {

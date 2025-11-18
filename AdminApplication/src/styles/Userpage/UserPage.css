@@ -1,6 +1,7 @@
 .main-container{
     width: 100%;           /* Brug viewport width i stedet for 100% */
     min-height: 100vh;
+    color:white;
     background-color: #1e293b;
     overflow: hidden;
     display: flex;    
