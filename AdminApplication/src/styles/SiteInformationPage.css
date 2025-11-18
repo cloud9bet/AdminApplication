@@ -251,7 +251,7 @@
 /* AKTIV CHART BUTTON STYLING NÅR DER KLIKKES */
 /* Farveskift til grøn for at indikere hvilken graf der er valgt. */
 .chart-buttons button.active {
-  background-color: #22c55e; 
+  background-color: #5159ed; 
   color: #111;
 }
 
