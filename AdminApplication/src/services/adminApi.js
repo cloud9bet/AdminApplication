@@ -24,7 +24,7 @@ export async function GetAllUserInfoTagsAsync() {
     }
 }
 
-export async function GetAllUserInfoByIdAsync() {
+export async function GetAllUserInfoByIdAsync(id) {
     try {
         const response = await Api.get(`/Admin/user/${id}`);
         console.log(response.data);

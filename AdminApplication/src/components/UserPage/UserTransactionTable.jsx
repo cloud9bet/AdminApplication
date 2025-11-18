@@ -23,9 +23,9 @@ function UserTransactionsTable({ transactions }) {
         <tbody>
           {transactions.map((t) => (
             <tr key={t.transactionId}>
-              <td>{t.transactionDate}</td>
+              <td>{t.date}</td>
               <td>{t.gameName}</td>
-              <td class={t.amount>=0? "currency-positive":"currency-negative"}>${t.amount}</td>
+              <td class={t.amount>=0? "currency-positive":"currency-negative"}>{t.amount}$</td>
             </tr>
           ))}
         </tbody>

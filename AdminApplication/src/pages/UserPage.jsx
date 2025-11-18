@@ -1,19 +1,72 @@
-import { useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
 import UserSearch from "../components/UserPage/UserSearch";
 import UserOverview from "../components/UserPage/UserOverview";
 import UserTransactionsTable from "../components/UserPage/UserTransactionTable";
 import UserDepositsTable from "../components/UserPage/UserDepositsTable";
 import UserActions from "../components/UserPage/UserActions";
-import { mockUsers } from "../mock/mockUsers";
-import {SetUserActiveStateAsync} from "../services/adminApi";
+
+import {
+  SetUserActiveStateAsync,
+  GetAllUserInfoTagsAsync,
+  GetAllUserInfoByIdAsync,
+  GetUserDepositByIdAsync,
+  GetUserTransactionByIdAsync
+} from "../services/adminApi";
+
 import "../styles/Userpage/UserPage.css";
 
 function UserPage() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
 
+  // Load tag list
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const result = await GetAllUserInfoTagsAsync();
+      if (!result) {
+        console.error("Failed to load user tags");
+        return;
+      }
+      setUsers(result);
+    };
+
+    fetchUsers();
+  }, []);
+
+  // Load full user data when clicking one
+  const handleSelectUser = async (tag) => {
+    setLoading(true);
+
+    const id = tag.userAccountId;
+
+    const [details, deposits, transactions] = await Promise.all([
+      GetAllUserInfoByIdAsync(id),
+      GetUserDepositByIdAsync(id),
+      GetUserTransactionByIdAsync(id)
+    ]);
+
+    if (!details) {
+      console.error("Failed to load user details");
+      setLoading(false);
+      return;
+    }
+
+    const fullUser = {
+      id: details.userAccountId,
+      userName: details.userName,
+      balance: details.balance,
+      depositLimit: details.depositLimit,
+      activeStatus: details.activeStatus,
+      deposits: deposits || [],
+      transactions: transactions || []
+    };
+
+    setSelectedUser(fullUser);
+    setLoading(false);
+  };
+
+  // Toggle status
   const handleToggleActive = async () => {
     if (!selectedUser) return;
 
@@ -28,22 +81,21 @@ function UserPage() {
       return;
     }
 
-    setSelectedUser(prev => ({
+    setSelectedUser((prev) => ({
       ...prev,
       activeStatus: newStatus,
     }));
 
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
   return (
     <div className="main-container">
-
       <div className="UserPage-container">
         <h1>User Management</h1>
 
         {!selectedUser ? (
-          <UserSearch users={mockUsers} onSelectUser={setSelectedUser} />
+          <UserSearch users={users} onSelectUser={handleSelectUser} />
         ) : (
           <div className="user-info-section">
             <UserOverview user={selectedUser} />
@@ -58,7 +110,6 @@ function UserPage() {
           </div>
         )}
       </div>
-
     </div>
   );
 }

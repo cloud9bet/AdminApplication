@@ -25,7 +25,7 @@
   margin-right: 10px;
   margin-left: 30px;
 }
-.LoginForm input::placeholder, .SignUpForm input::placeholder{
+.LoginForm input::placeholder{
   color: black;
   font-style: italic;
 }
@@ -33,12 +33,14 @@
   padding: 10px;
   width: 50%;
   height: 30px;
+  color:black;
   border: 1px solid #ccc;
+  background-color: white;
   border-radius: 5px;
     margin-top: 5px;
     margin-right: 60px;
 }
-.Login-container button, .SignUp-container button {  
+.Login-container button {  
   background-color: #007bff;
   color: white;
   border: none;
@@ -48,46 +50,14 @@
 
 } 
 
-.SignUp-form-row {
-  display: flex;
-  flex-direction: row;
-  margin-right: 70px;
-  width: 500px;
-}
 
 
-
-.SignUpForm label {
-    margin-top: 5px;
-  text-align: right;
-  font-weight: bold;
-  width: 200px;
-  margin-right: 10px;
-  margin-left: 30px;
-}
-
-
-
-
-
-.SignUpForm input {
-  padding: 10px;
-  width: 50%;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-    margin-top: 5px;
-    margin-right: 123px;
-}
-
-
-
-.Login-container button:hover, .SignUp-container button:hover {  
+.Login-container button:hover {  
     background-color: #0262c8;
 } 
 
 
-.Loginpage-container,.SignUp-page-container {
+.Loginpage-container {
     display: flex;
     flex-direction: column;
     align-items: center;
