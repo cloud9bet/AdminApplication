@@ -5,7 +5,8 @@ function LogoutBtn() {
     const navigate = useNavigate();
   
   function OnLogOutClicked() {
-    navigate("/");
+    localStorage.clear();
+    navigate("/login");
   }
 
   return ( 

@@ -38,7 +38,6 @@ function SiteInformationPage() {
   return (
     <div className="siteinformation-main-container">
       <div className="SiteInformation-container">
-        <Header />
 
         <div className="dashboard-container">
           <h1 className="dashboard-title">Dashboard</h1>
@@ -115,7 +114,6 @@ function SiteInformationPage() {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   );

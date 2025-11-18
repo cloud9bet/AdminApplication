@@ -7,7 +7,7 @@ import UserTransactionsTable from "../components/UserPage/UserTransactionTable";
 import UserDepositsTable from "../components/UserPage/UserDepositsTable";
 import UserActions from "../components/UserPage/UserActions";
 import { mockUsers } from "../mock/mockUsers";
-import { toggleUserStatus } from "../api/userApi";
+import {SetUserActiveStateAsync} from "../services/adminApi";
 import "../styles/Userpage/UserPage.css";
 
 function UserPage() {
@@ -16,28 +16,28 @@ function UserPage() {
 
   const handleToggleActive = async () => {
     if (!selectedUser) return;
-    try {
-      setLoading(true);
-      const newStatus = !selectedUser.activeStatus;
 
-      const response = await toggleUserStatus(selectedUser.id, newStatus);
+    setLoading(true);
+    const newStatus = !selectedUser.activeStatus;
 
-      if (response.success) {
-        setSelectedUser((prev) => ({
-          ...prev,
-          activeStatus: newStatus,
-        }));
-      }
-    } catch (err) {
-      console.error("Failed to toggle user status:", err);
-    } finally {
+    const ok = await SetUserActiveStateAsync(selectedUser.id, newStatus);
+
+    if (!ok) {
+      console.error("Backend rejected toggle");
       setLoading(false);
+      return;
     }
-  };
+
+    setSelectedUser(prev => ({
+      ...prev,
+      activeStatus: newStatus,
+    }));
+
+  setLoading(false);
+};
 
   return (
     <div className="main-container">
-      <Header />
 
       <div className="UserPage-container">
         <h1>User Management</h1>
@@ -59,7 +59,6 @@ function UserPage() {
         )}
       </div>
 
-      <Footer />
     </div>
   );
 }

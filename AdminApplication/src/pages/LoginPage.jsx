@@ -1,6 +1,5 @@
 import LoginForm from "../components/LoginForm"
 import LogoImg from "../Images/Cloud9.png"
-import Footer from "../components/Footer"
 import '../styles/Login.css'
 
 function LoginPage() {
@@ -12,7 +11,6 @@ function LoginPage() {
         </div>
         <LoginForm />
       </div>
-      <Footer />
     </div>
   )
 }

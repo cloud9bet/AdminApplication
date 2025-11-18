@@ -8,14 +8,10 @@ import "../styles/HomePage.css";
 function HomePage() {
   return (
     <div className="homepage-container">
-      <Header />
-
       <div className="homepage-buttons">
         <UserInformationButton />
         <SiteInformationButton />
       </div>
-
-      <Footer />
     </div>
   );
 }
