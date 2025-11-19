@@ -34,43 +34,20 @@ function UserPage() {
     fetchUsers();
   }, []);
 
-  // Load full user data when clicking one
   const handleSelectUser = async (tag) => {
     setLoading(true);
 
     const id = tag.userAccountId;
 
-    let details = [];
-    let deposits = [];
-    let transactions = [];
-    try {
-      details = await GetAllUserInfoByIdAsync(id);
-    } catch (err) {
-      console.error("Failed to load user details", err);
-    }
+    const [details, deposits, transactions] = await Promise.all([
+      GetAllUserInfoByIdAsync(id),
+      GetUserDepositByIdAsync(id),
+      GetUserTransactionByIdAsync(id)
+    ]);
 
-    try {
-      deposits = await GetUserDepositByIdAsync(id);
-    } catch (err) {
-      console.error("Failed to load deposits", err);
-    }
-
-    try {
-      transactions = await GetUserTransactionByIdAsync(id);
-    } catch (err) {
-      console.error("Failed to load transactions", err);
-    }
-
+    // main call failed → abort
     if (!details) {
-      console.error("Cannot load main user details, aborting");
-      setLoading(false);
-      return;
-    }
-
-
-
-    if (!details) {
-      console.error("Failed to load user details");
+      console.error("Failed to load main user details");
       setLoading(false);
       return;
     }
@@ -88,6 +65,7 @@ function UserPage() {
     setSelectedUser(fullUser);
     setLoading(false);
   };
+
 
   // Toggle status
   const handleToggleActive = async () => {

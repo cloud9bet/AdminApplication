@@ -1,4 +1,5 @@
-import "../../styles/Userpage/UserDepositsTable.css"
+import "../../styles/Userpage/UserDepositsTable.css";
+
 function UserDepositsTable({ deposits }) {
   if (!deposits || deposits.length === 0) {
     return (
@@ -8,6 +9,11 @@ function UserDepositsTable({ deposits }) {
       </div>
     );
   }
+
+  // Sort newest → oldest
+  const sortedDeposits = [...deposits].sort(
+    (a, b) => new Date(b.depositDate) - new Date(a.depositDate)
+  );
 
   return (
     <div className="user-deposits">
@@ -21,11 +27,13 @@ function UserDepositsTable({ deposits }) {
           </tr>
         </thead>
         <tbody>
-          {deposits.map((d) => (
+          {sortedDeposits.map((d) => (
             <tr key={d.depositId}>
               <td>{d.depositId}</td>
               <td>{d.depositDate}</td>
-              <td class={d.amount>=0? "currency-positive":"currency-negative"}>{d.amount}$</td>
+              <td className={d.amount >= 0 ? "currency-positive" : "currency-negative"}>
+                {d.amount}$
+              </td>
             </tr>
           ))}
         </tbody>
@@ -34,4 +42,4 @@ function UserDepositsTable({ deposits }) {
   );
 }
 
-export default UserDepositsTable
+export default UserDepositsTable;

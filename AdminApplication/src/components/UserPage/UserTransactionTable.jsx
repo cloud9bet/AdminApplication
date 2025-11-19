@@ -1,4 +1,5 @@
-import "../../styles/Userpage/UserTransactionTable.css"
+import "../../styles/Userpage/UserTransactionTable.css";
+
 function UserTransactionsTable({ transactions }) {
   if (!transactions || transactions.length === 0) {
     return (
@@ -8,6 +9,10 @@ function UserTransactionsTable({ transactions }) {
       </div>
     );
   }
+
+  const sortedTransactions = [...transactions].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
   return (
     <div className="user-transactions">
@@ -21,11 +26,13 @@ function UserTransactionsTable({ transactions }) {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((t) => (
+          {sortedTransactions.map((t) => (
             <tr key={t.transactionId}>
               <td>{t.date}</td>
               <td>{t.gameName}</td>
-              <td class={t.amount>=0? "currency-positive":"currency-negative"}>{t.amount}$</td>
+              <td className={t.amount >= 0 ? "currency-positive" : "currency-negative"}>
+                {t.amount}$
+              </td>
             </tr>
           ))}
         </tbody>
@@ -34,4 +41,4 @@ function UserTransactionsTable({ transactions }) {
   );
 }
 
-export default UserTransactionsTable
+export default UserTransactionsTable;

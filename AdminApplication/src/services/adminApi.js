@@ -71,7 +71,7 @@ export async function GetUserTransactionByIdAsync(id) {
 
     } catch (error) {
         console.error(error.message);
-        throw error;
+        return false;
     }
 }
 
@@ -83,6 +83,6 @@ export async function GetUserDepositByIdAsync(id) {
 
     } catch (error) {
         console.error(error.message);
-        throw error;
+        return false;
     }
 }
