@@ -40,11 +40,34 @@ function UserPage() {
 
     const id = tag.userAccountId;
 
-    const [details, deposits, transactions] = await Promise.all([
-      GetAllUserInfoByIdAsync(id),
-      GetUserDepositByIdAsync(id),
-      GetUserTransactionByIdAsync(id)
-    ]);
+    let details = [];
+    let deposits = [];
+    let transactions = [];
+    try {
+      details = await GetAllUserInfoByIdAsync(id);
+    } catch (err) {
+      console.error("Failed to load user details", err);
+    }
+
+    try {
+      deposits = await GetUserDepositByIdAsync(id);
+    } catch (err) {
+      console.error("Failed to load deposits", err);
+    }
+
+    try {
+      transactions = await GetUserTransactionByIdAsync(id);
+    } catch (err) {
+      console.error("Failed to load transactions", err);
+    }
+
+    if (!details) {
+      console.error("Cannot load main user details, aborting");
+      setLoading(false);
+      return;
+    }
+
+
 
     if (!details) {
       console.error("Failed to load user details");

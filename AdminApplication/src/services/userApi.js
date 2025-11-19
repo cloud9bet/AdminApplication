@@ -10,6 +10,7 @@ export async function GetAllUserDepositAsync() {
 
     } catch (error) {
         console.error(error.message);
+        return false;
     }
 }
 
