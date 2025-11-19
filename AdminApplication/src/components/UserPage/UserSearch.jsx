@@ -1,7 +1,11 @@
 import "../../styles/Userpage/UserSearch.css";
 
 function UserSearch({ users, onSelectUser }) {
-  if (!Array.isArray(users) || users.length === 0) {
+  const activeUsers = Array.isArray(users)
+    ? users.filter(u => u.userName !== "DELETED")
+    : [];
+
+  if (activeUsers.length === 0) {
     return (
       <div className="user-search">
         <h3>Select a user:</h3>
@@ -14,7 +18,7 @@ function UserSearch({ users, onSelectUser }) {
     <div className="user-search">
       <h3>Select a user:</h3>
       <ul>
-        {users.map(u => (
+        {activeUsers.map(u => (
           <li
             key={u.userAccountId}
             onClick={() => onSelectUser(u)}
@@ -26,5 +30,6 @@ function UserSearch({ users, onSelectUser }) {
     </div>
   );
 }
+
 
 export default UserSearch;
