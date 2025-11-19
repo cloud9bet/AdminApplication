@@ -14,14 +14,18 @@ function LoginForm() {
   
       const result = await login(userName, password);
 
+      if (result) {
       const token = sessionStorage.getItem("JWT");
       const payload = jwtDecode(token);
       const role = payload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
-
-      if (result && role == "Admin") {
+      if(role == "Admin"){
         navigate('/');
+      }
+      else{
+        alert("Login failed Due To Access Rights");
+      }
       } else {
-        alert("Login failed Due To Wrong Credentials Or Access Rights");
+        alert("Login failed Due To Wrong Credentials");
       }
   };
 
