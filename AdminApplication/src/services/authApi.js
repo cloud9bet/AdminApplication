@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 //ændrer logic til at gemme tokens i lokalStorage og slet console.log
 
-const BASEURL = "https://localhost:7203";
+const BASEURL = "https://cloud9bet.dk";
 
 
 export const AuthApi = axios.create({
@@ -20,8 +20,8 @@ export async function login(username, password) {
     //sæt i lokal storage for tokens
     const {jwTtoken, refreshToken} = response.data;
 
-    localStorage.setItem("JWT", jwTtoken);
-    localStorage.setItem("refreshToken", refreshToken);
+    sessionStorage.setItem("JWT", jwTtoken);
+    sessionStorage.setItem("refreshToken", refreshToken);
     
     console.log(response.data);
     return true;
