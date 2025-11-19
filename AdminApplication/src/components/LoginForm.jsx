@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom"
-import '../styles/Login.css'
 import { useState } from "react";
 import { login } from "../services/authApi";
-
+import { jwtDecode } from "jwt-decode";
+import '../styles/Login.css'
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -13,11 +13,15 @@ function LoginForm() {
       e.preventDefault();
   
       const result = await login(userName, password);
-  
-      if (result) {
+
+      const token = sessionStorage.getItem("JWT");
+      const payload = jwtDecode(token);
+      const role = payload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+
+      if (result && role == "Admin") {
         navigate('/');
       } else {
-        alert("Login failed due to wrong username or password");
+        alert("Login failed Due To Wrong Credentials Or Access Rights");
       }
   };
 
