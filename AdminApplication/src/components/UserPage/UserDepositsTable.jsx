@@ -30,7 +30,7 @@ function UserDepositsTable({ deposits }) {
           {sortedDeposits.map((d) => (
             <tr key={d.depositId}>
               <td>{d.depositId}</td>
-              <td>{d.depositDate}</td>
+              <td>{d.Date}</td>
               <td className={d.amount >= 0 ? "currency-positive" : "currency-negative"}>
                 {d.amount}$
               </td>
