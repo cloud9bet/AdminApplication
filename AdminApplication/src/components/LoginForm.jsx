@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import React from "react";
 import { useState } from "react";
 import { login } from "../services/authApi";
 import { jwtDecode } from "jwt-decode";
@@ -42,7 +43,7 @@ function LoginForm() {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" data-testid="password" value={password} name="password" placeholder="Enter password" required onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="submit">Log in</button>
+        <button type="submit" data-testid="submit-btn">Log in</button>
 
     </form>
   </div>
