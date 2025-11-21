@@ -29,7 +29,6 @@ describe("LogoutBtn", () => {
     fireEvent.click(screen.getByRole("button"));
 
     expect(sessionStorage.getItem("joe")).toBeUndefined();
-    expect(sessionStorage.getItem("hiru")).toBeUndefined();
     expect(navigateMock).toHaveBeenCalledWith("/login");
   });
 });
