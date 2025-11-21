@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 vi.mock("../src/services/authApi");
 vi.mock("jwt-decode");
-vi.mock("react-router-dom", () => ({
-    ...vi.importActual("react-router-dom"),
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
     useNavigate: vi.fn(),
-}));
+  };
+});
 
 describe("LoginForm", () => {
     let navigateMock;

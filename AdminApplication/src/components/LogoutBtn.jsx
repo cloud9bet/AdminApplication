@@ -11,7 +11,7 @@ function LogoutBtn() {
 
   return ( 
       <div className="logout-btn">
-      <button className="logoutbtn" onClick={OnLogOutClicked}>  {/*THIS */}
+      <button className="logoutbtn" onClick={OnLogOutClicked}>  
         <FaSignOutAlt/>
       </button>
       </div>
