@@ -29,9 +29,9 @@ export const processTransactionsByGame = (transactions, gameName) => {
     const isoDate = jsDate.toISOString().split("T")[0]; // YYYY-MM-DD
 
     if (earningsByDate[isoDate]) {
-      earningsByDate[isoDate] += t.amount;
+      earningsByDate[isoDate] += -t.amount;
     } else {
-      earningsByDate[isoDate] = t.amount;
+      earningsByDate[isoDate] = -t.amount;
     }
   });
 
@@ -66,9 +66,9 @@ export const processTotalEarnings = (transactions) => {
   const earningsByDate = {};
   recentTransactions.forEach((t) => {
     if (earningsByDate[t.date]) {
-      earningsByDate[t.date] += t.amount;
+      earningsByDate[t.date] += -t.amount;
     } else {
-      earningsByDate[t.date] = t.amount;
+      earningsByDate[t.date] = -t.amount;
     }
   });
 
@@ -103,7 +103,7 @@ export const calculateSiteSummary = (transactions, users) => {
 
   // Samlet indtjening de sidste 7 dage
   const totalEarningsLast7Days = transactionsLast7Days.reduce
-    ((sum, t) => sum + t.amount, 0);
+    ((sum, t) => sum + -t.amount, 0);
 
   return {
     totalUsers,
