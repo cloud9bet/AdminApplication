@@ -14,12 +14,12 @@ describe("UserDepositsTable", () => {
     const deposits = [
       {
         depositId: 1,
-        depositDate: "2025-11-20",
+        date: "2025-11-20",
         amount: 50
       },
       {
         depositId: 2,
-        depositDate: "2025-11-21",
+        date: "2025-11-21",
         amount: -20
       }
     ];
@@ -42,12 +42,12 @@ describe("UserDepositsTable", () => {
     const deposits = [
       {
         depositId: 1,
-        depositDate: "2025-11-21",
+        date: "2025-11-21",
         amount: 10
       },
       {
         depositId: 2,
-        depositDate: "2025-11-20",
+        date: "2025-11-20",
         amount: -5
       }
     ];
