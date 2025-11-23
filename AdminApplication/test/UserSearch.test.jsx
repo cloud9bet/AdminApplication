@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, test } from "vitest";
-import UserSearch from "../src/components/Userpage/UserSearch";
+import UserSearch from "../src/components/UserPage/UserSearch";
 
 describe("UserSearch", () => {
 
