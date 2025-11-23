@@ -1,4 +1,4 @@
-cdimport { Api } from "./apiService";
+import { Api } from "./apiService";
 //alt logges lige nu men skal ændres til at return stuff når de er testet
 
 //huske skal enten være true eller false
