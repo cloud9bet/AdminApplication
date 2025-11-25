@@ -31,18 +31,4 @@ export async function login(username, password) {
   }
 }
 
-export async function register(username, password) {
-  try {
-    const response = await AuthApi.post('/Auth/register', {
-      username,
-      password
-    });
-    //redirct til login
-    console.log(response.data);
-    return true;
-  } catch (error) {
-    console.error(error.response?.data || error.message);
-    return false;
-  }
-}
 
