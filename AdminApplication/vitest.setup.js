@@ -1,15 +1,6 @@
 import { expect, beforeEach } from "vitest";
 import '@testing-library/jest-dom';
 
-// Stub ResizeObserver for Recharts in JSDOM
-if (typeof global.ResizeObserver === "undefined") {
-  global.ResizeObserver = class {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  };
-}
-
 beforeEach(() => {
   const store = {};
 
