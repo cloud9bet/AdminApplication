@@ -4,7 +4,6 @@ import EarningsPieChart from "../../src/components/Charts/EarningsPieChart";
 
 // Mock Recharts væk så testen ikke kræver SVG/ResizeObserver i JSDOM
 vi.mock("recharts", () => { // nødvendigt for JSX
-  const React = require("react");
   const Passthrough = ({ children }) => <div>{children}</div>; // ingen rigtig chart, kun wrapper
   const Pie = ({ data, children }) => ( // simpel pie mock
     <div data-testid="pie">

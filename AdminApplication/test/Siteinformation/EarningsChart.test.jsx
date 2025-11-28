@@ -2,9 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import EarningsChart from "../../src/components/Charts/EarningsChart";
 
-// Mock Recharts væk så testen kan køre i JSDOM uden ResizeObserver
+// Mock Recharts komponenter for at undgå kompleksitet i tests 
 vi.mock("recharts", () => {
-  const React = require("react"); // nødvendigt for JSX
   const Passthrough = ({ children }) => <div>{children}</div>; // ingen rigtig chart, kun wrapper
   const Chart = ({ data, children }) => ( // simpel chart mock
     <div data-testid="chart">
@@ -36,7 +35,7 @@ describe("EarningsChart", () => { // hovedbeskrivelse af test suite
     expect(screen.getByText("Test Chart")).toBeInTheDocument();
   });
 
-  test("renders the earnings values", () => { // test for earnings værdier
+  test("renders the earnings values", () => { // test for earnings v��rdier
     render(<EarningsChart data={mockData} title="Test Chart" color="#ff0000" />);
     const data = screen.getByTestId("data").textContent;
     expect(data).toContain("100");

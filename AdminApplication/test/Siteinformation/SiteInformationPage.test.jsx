@@ -14,19 +14,6 @@ vi.mock("../../src/components/Charts/EarningsChart", () => ({
   default: ({ title }) => <div>{title}</div>,
 }));
 
-// Mock charts så vi kan asserte på deres props uden at skulle håndtere SVG/ResizeObserver
-vi.mock("../../src/components/Charts/EarningsPieChart", () => ({ 
-  __esModule: true,
-  default: ({ data }) => (
-    <div>
-      PieChart
-      {data.map((d) => (
-        <span key={d.name}>{`${d.name}:${d.value}`}</span>
-      ))}
-    </div>
-  ),
-}));
-
 // Mock pie chart hook så vi kan asserte på det forberedte output med det samme
 vi.mock("../../src/hooks/usePieChartData", () => ({
   usePieChartData: vi.fn(() => (
