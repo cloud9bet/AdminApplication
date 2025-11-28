@@ -1,4 +1,3 @@
-
 import { render, fireEvent, screen } from '@testing-library/react';
 import { beforeEach, vi, describe, test } from "vitest";
 import LoginForm from "../src/components/LoginForm";
@@ -9,11 +8,11 @@ import { useNavigate } from "react-router-dom";
 vi.mock("../src/services/authApi");
 vi.mock("jwt-decode");
 vi.mock("react-router-dom", async () => {
-  const actual = await vi.importActual("react-router-dom");
-  return {
-    ...actual, //only overwrite useNavigate
-    useNavigate: vi.fn(),
-  };
+    const actual = await vi.importActual("react-router-dom");
+    return {
+        ...actual,
+        useNavigate: vi.fn(),
+    };
 });
 
 describe("LoginForm", () => {
@@ -30,11 +29,8 @@ describe("LoginForm", () => {
     });
 
     test("calls login with username and password", async () => {
-        login.mockResolvedValue(true);
-        jwtDecode.mockReturnValue({
-            "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
-        })
-        sessionStorage.setItem("JWT", "token");
+        login.mockResolvedValue(false);
+
         render(<LoginForm />);
         fireEvent.change(screen.getByTestId("name"), { target: { value: "bob" } });
         fireEvent.change(screen.getByTestId("password"), { target: { value: "pass" } });
@@ -42,12 +38,15 @@ describe("LoginForm", () => {
 
         expect(login).toHaveBeenCalledWith("bob", "pass");
     });
+
+
     test("navigates on admin login", async () => {
         login.mockResolvedValue(true);
         jwtDecode.mockReturnValue({
             "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "Admin"
-        })
+        });
         sessionStorage.setItem("JWT", "token");
+
         render(<LoginForm />);
         fireEvent.change(screen.getByTestId("name"), { target: { value: "bob" } });
         fireEvent.change(screen.getByTestId("password"), { target: { value: "pass" } });
@@ -57,12 +56,12 @@ describe("LoginForm", () => {
 
         expect(navigateMock).toHaveBeenCalledWith("/");
     });
+
     test("alerts on non-admin login", async () => {
         login.mockResolvedValue(true);
         jwtDecode.mockReturnValue({
             "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "User"
         });
-
         sessionStorage.setItem("JWT", "token");
 
         render(<LoginForm />);
@@ -91,6 +90,7 @@ describe("LoginForm", () => {
             "Login failed Due To Wrong Credentials"
         );
     });
+
     test("does NOT navigate for non-admin login", async () => {
         login.mockResolvedValue(true);
         jwtDecode.mockReturnValue({

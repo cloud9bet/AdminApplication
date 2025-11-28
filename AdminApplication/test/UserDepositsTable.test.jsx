@@ -25,15 +25,12 @@ describe("UserDepositsTable", () => {
     ];
 
     render(<UserDepositsTable deposits={deposits} />);
-
-    // Grab all rows (header + data rows)
     const rows = screen.getAllByRole("row");
 
-    // rows[1] is the first data row after header → should be the newest (21)
     expect(rows[1]).toHaveTextContent("2");
     expect(rows[1]).toHaveTextContent("2025-11-21");
 
-    // rows[2] should be the older deposit
+    // Burde være ældst
     expect(rows[2]).toHaveTextContent("1");
     expect(rows[2]).toHaveTextContent("2025-11-20");
   });
