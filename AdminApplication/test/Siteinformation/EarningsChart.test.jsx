@@ -35,7 +35,7 @@ describe("EarningsChart", () => { // hovedbeskrivelse af test suite
     expect(screen.getByText("Test Chart")).toBeInTheDocument();
   });
 
-  test("renders the earnings values", () => { // test for earnings v��rdier
+  test("renders the earnings values", () => { // test for earnings værdier
     render(<EarningsChart data={mockData} title="Test Chart" color="#ff0000" />);
     const data = screen.getByTestId("data").textContent;
     expect(data).toContain("100");
