@@ -37,7 +37,7 @@ useEffect(() => {
   // Kalder funktionerne for at få data til hver chart
   const slotData = processTransactionsByGame(transactions, 'Slot');
   const crashData = processTransactionsByGame(transactions, 'Crash');
-  const coinflipData = processTransactionsByGame(transactions, 'Coin Flip');
+  const coinflipData = processTransactionsByGame(transactions, 'CoinFlip');
   const siteData = processTotalEarnings(transactions);
   const summary = calculateSiteSummary(transactions, users);
   const [activeChart, setActiveChart] = useState("total"); // State til at holde styr på hvilken chart der er aktiv
