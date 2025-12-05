@@ -20,7 +20,6 @@ function UserPage() {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
 
-  // Load tag list
   useEffect(() => {
     const fetchUsers = async () => {
       const result = await GetAllUserInfoTagsAsync();
@@ -45,7 +44,6 @@ function UserPage() {
       GetUserTransactionByIdAsync(id)
     ]);
 
-    // main call failed → abort
     if (!details) {
       console.error("Failed to load main user details");
       setLoading(false);
@@ -67,7 +65,7 @@ function UserPage() {
   };
 
 
-  // Toggle status
+  
   const handleToggleActive = async () => {
     if (!selectedUser) return;
 

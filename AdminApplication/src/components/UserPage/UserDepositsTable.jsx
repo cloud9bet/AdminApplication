@@ -10,7 +10,6 @@ function UserDepositsTable({ deposits }) {
     );
   }
 
-  // Sort newest → oldest
   const sortedDeposits = [...deposits].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
