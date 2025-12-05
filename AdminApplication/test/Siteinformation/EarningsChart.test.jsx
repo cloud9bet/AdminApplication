@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import EarningsChart from "../../src/components/Charts/EarningsChart";
 
-// Mock Recharts komponenter for at undgå kompleksitet i tests 
+// Mock Recharts komponenter for at teste uden at skulle rendere rigtige charts 
 vi.mock("recharts", () => {
   const Passthrough = ({ children }) => <div>{children}</div>; // ingen rigtig chart, kun wrapper
   const Chart = ({ data, children }) => ( // simpel chart mock
@@ -55,3 +55,4 @@ describe("EarningsChart", () => { // hovedbeskrivelse af test suite
   });
 
 });
+

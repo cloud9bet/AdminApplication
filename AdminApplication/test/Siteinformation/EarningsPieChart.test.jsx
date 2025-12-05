@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import EarningsPieChart from "../../src/components/Charts/EarningsPieChart";
 
-// Mock Recharts væk så testen ikke kræver SVG/ResizeObserver i JSDOM
+// Mock Recharts væk så testen ikke kræver rigtige charts
 vi.mock("recharts", () => { // nødvendigt for JSX
   const Passthrough = ({ children }) => <div>{children}</div>; // ingen rigtig chart, kun wrapper
   const Pie = ({ data, children }) => ( // simpel pie mock
@@ -49,3 +49,4 @@ describe("EarningsPieChart", () => { // hovedbeskrivelse af test suite
     expect(data).toContain("300");
   });
 });
+

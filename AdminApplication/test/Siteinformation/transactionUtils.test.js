@@ -37,7 +37,7 @@ describe("transactionUtils", () => {
       ]);
     });
 
-    it("returns empty array when no matching or in-window transactions", () => { // ingen relevante transaktioner
+    it("returns empty array when no matching transactions", () => { // ingen relevante transaktioner
       const transactions = [
         { date: "2025-10-01", amount: -10, gameName: "Slot" },
         { date: "2025-11-19", amount: -5, gameName: "Crash" },
@@ -75,7 +75,8 @@ describe("transactionUtils", () => {
       const transactions = [
         { date: "2025-11-19", amount: -40 },
         { date: "2025-11-14", amount: -10 },
-        { date: "2025-11-01", amount: -100 }, // ignored
+        { date: "2025-11-01", amount: -100 }, // udenfor 7 dage
+        
       ];
       const users = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 

@@ -8,7 +8,7 @@ vi.mock("../../src/services/adminApi", () => ({
   GetAllUserTransactionAsync: vi.fn(),
 }));
 
-// Mock charts så vi kan asserte på deres props uden at skulle håndtere SVG/ResizeObserver
+// Mock charts så vi kan asserte på deres props uden at skulle rende dem fuldt ud
 vi.mock("../../src/components/Charts/EarningsChart", () => ({
   __esModule: true,
   default: ({ title }) => <div>{title}</div>,
@@ -63,7 +63,7 @@ describe("SiteInformationPage", () => { // hovedbeskrivelse af test suite
 
     expect(screen.getByText("4")).toBeInTheDocument(); // total users
     expect(screen.getByText("3")).toBeInTheDocument(); // 3 transaktioner
-    expect(screen.getByText("250.00 USD")).toBeInTheDocument(); // 200 - 50 + 100
+    expect(screen.getByText("250.00 USD")).toBeInTheDocument();
   });
 
   it("renders chart buttons and toggles visible chart title", async () => { // test for chart knapper
@@ -101,3 +101,4 @@ describe("SiteInformationPage", () => { // hovedbeskrivelse af test suite
     expect(screen.getByText("Coinflip:100")).toBeInTheDocument();
   });
 });
+
