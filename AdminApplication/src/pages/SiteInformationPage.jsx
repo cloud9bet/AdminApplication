@@ -10,8 +10,6 @@ import { GetAllUserInfoTagsAsync, GetAllUserTransactionAsync,} from "../services
 
 
 import { useState, useEffect } from 'react';
-// import { mockTransactions } from '../mock/mockTransactions';  TODO: Henter dummy data og skal SLETTES når API er klar !
-// import { mockUsers } from "../mock/mockUsers";  TODO: Henter dummy data og skal SLETTES når API er klar !  
 
 function SiteInformationPage() {
   const [transactions, setTransactions] = useState([]); // til at behandle transaction data når API er klar
@@ -20,7 +18,7 @@ function SiteInformationPage() {
 useEffect(() => {
   async function loadData() {
     try {
-      const usersFromApi = await GetAllUserInfoTagsAsync();
+      const usersFromApi = await GetAllUserInfoTagsAsync(); 
       const transactionsFromApi = await GetAllUserTransactionAsync();
 
       setUsers(usersFromApi || []);          // fallback til [] hvis der kommer null

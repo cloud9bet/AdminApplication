@@ -99,6 +99,7 @@ describe("SiteInformationPage", () => { // hovedbeskrivelse af test suite
     expect(screen.getByText("Slot Machine:200")).toBeInTheDocument();
     expect(screen.getByText("Crash:-50")).toBeInTheDocument();
     expect(screen.getByText("Coinflip:100")).toBeInTheDocument();
+    
   });
 });
 

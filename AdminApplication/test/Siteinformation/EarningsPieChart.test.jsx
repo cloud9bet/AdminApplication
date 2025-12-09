@@ -3,7 +3,7 @@ import { describe, test, expect, vi } from "vitest";
 import EarningsPieChart from "../../src/components/Charts/EarningsPieChart";
 
 // Mock Recharts væk så testen ikke kræver rigtige charts
-vi.mock("recharts", () => { // nødvendigt for JSX
+vi.mock("recharts", () => { 
   const Passthrough = ({ children }) => <div>{children}</div>; // ingen rigtig chart, kun wrapper
   const Pie = ({ data, children }) => ( // simpel pie mock
     <div data-testid="pie">
@@ -27,6 +27,7 @@ describe("EarningsPieChart", () => { // hovedbeskrivelse af test suite
     { name: "Coinflip", value: 300 },
     { name: "Crash", value: 150 },
     { name: "Slot Machine", value: 550 },
+    
   ];
 
   test("renders pie chart labels", () => { // test for pie chart labels

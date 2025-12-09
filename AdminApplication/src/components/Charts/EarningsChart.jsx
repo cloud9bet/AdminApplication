@@ -1,4 +1,4 @@
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'; // Importerer komponenter fra recharts
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const CustomTooltip = ({ active, payload, label }) => { // Custom tooltip til teksten når man hover over søjlerne
   if (active && payload && payload.length) { // Tjekker om tooltip er aktiv og om der er data at vise
@@ -9,9 +9,9 @@ const CustomTooltip = ({ active, payload, label }) => { // Custom tooltip til te
     return (
       <div
         style={{ // Styling for tooltip/teksten
-          background: "#1e1e2f",  // Baggrund ligesom resten af siden   
-          color: "#f1f5f9", // Lys tekst farve       
-          padding: "6px 10px", // Padding for indholdet
+          background: "#1e1e2f", 
+          color: "#f1f5f9",     
+          padding: "6px 10px", 
           borderRadius: "6px", // Runde hjørner
         }}
       >
@@ -58,6 +58,7 @@ function EarningsChart({ data, title, color }) {
       </ResponsiveContainer>
     </div>
   );
+  
 }
 
 export default EarningsChart;

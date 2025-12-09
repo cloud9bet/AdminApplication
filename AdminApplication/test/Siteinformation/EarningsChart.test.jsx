@@ -28,6 +28,7 @@ describe("EarningsChart", () => { // hovedbeskrivelse af test suite
   const mockData = [
     { date: "2025-11-18", earnings: 100 },
     { date: "2025-11-19", earnings: -50 }
+    
   ];
 
   test("renders chart title", () => { // test for chart titel
